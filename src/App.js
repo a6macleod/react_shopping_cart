@@ -99,7 +99,11 @@ function App() {
   const [item, setItem] = useState([]);
 
   const itemToView = (it) => {
-    console.log(it.id);
+    setItem({
+      id: it.id,
+      img: it.img,
+      cost: it.cost,
+    });
   };
 
   // the shopping cart
@@ -128,7 +132,7 @@ function App() {
               <Shop products={products} itemToView={itemToView} />
             </Route>
             <Route exact path="/shop/:id">
-              <ItemView addItem={ItemView} products={products} />
+              <ItemView addItem={ItemView} item={item} />
             </Route>
             <Route path="/shopping-cart" component={ShoppingCart} />
             <Route component={NoMatchPage} />
