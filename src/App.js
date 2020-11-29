@@ -110,21 +110,26 @@ function App() {
   const [cartQuantity, setCartQuantity] = useState(0);
   const [cart, setCart] = useState([]);
 
+  // update the cart icon
   useEffect(() => {
     setCartQuantity(cart.length);
   }, [cart]);
 
+  // add an item to the cart state
   const addItem = (item, quantity = 1) => {
     const temp = cart.slice();
+    // check if item is already in the cart
     if (temp.length > 0) {
       for (let cartItem of temp) {
         if (cartItem.item.id === item.id) {
           cartItem.quantity = Number(cartItem.quantity) + Number(quantity);
         } else {
+          // add a new item to the cart (when not empty)
           temp.push({ item, quantity });
         }
       }
     } else {
+      // add a new item to an empty cart
       temp.push({ item, quantity });
     }
     setCart(temp);
@@ -140,10 +145,11 @@ function App() {
             <Route exact path="/shop">
               <Shop products={products} itemToView={itemToView} />
             </Route>
-            <Route exact path="/shop/:id">
+            <Route path="/shopping-cart" component={ShoppingCart} />
+            <Route exact path="/:id">
               <ItemView addItem={addItem} item={item} />
             </Route>
-            <Route path="/shopping-cart" component={ShoppingCart} />
+
             <Route component={NoMatchPage} />
           </Switch>
         </div>
