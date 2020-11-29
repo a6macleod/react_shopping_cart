@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const Header = () => {
+const Header = (props) => {
   return (
     <div className="header">
       <Link to="/">
@@ -13,7 +13,7 @@ const Header = () => {
           </Link>
           <Link to="shopping-cart">
             <li>
-              <i className="fas fa-shopping-cart"></i>
+              <i className="fas fa-shopping-cart">{props.cartQuantity}</i>
             </li>
           </Link>
         </ul>

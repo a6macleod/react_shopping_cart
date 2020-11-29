@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "./components/Header";
 import Home from "./components/Home";
 import Shop from "./components/Shop";
@@ -107,25 +107,34 @@ function App() {
   };
 
   // the shopping cart
-  const [cart, setCart] = useState([
-    {
-      id: "one",
-      quantity: 1,
-    },
-  ]);
+  const [cartQuantity, setCartQuantity] = useState(0);
+  const [cart, setCart] = useState([]);
+
+  useEffect(() => {
+    setCartQuantity(cart.length);
+  }, [cart]);
 
   const addItem = (item, quantity = 1) => {
-    console.log(item, quantity);
-    // const temp = cart.slice();
-    // temp.push({ item: 1 });
-    // setCart(temp);
+    const temp = cart.slice();
+    if (temp.length > 0) {
+      for (let cartItem of temp) {
+        if (cartItem.item.id === item.id) {
+          cartItem.quantity = Number(cartItem.quantity) + Number(quantity);
+        } else {
+          temp.push({ item, quantity });
+        }
+      }
+    } else {
+      temp.push({ item, quantity });
+    }
+    setCart(temp);
   };
 
   return (
     <div className="App">
       <Router>
         <div>
-          <Header />
+          <Header cartQuantity={cartQuantity} />
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/shop">
