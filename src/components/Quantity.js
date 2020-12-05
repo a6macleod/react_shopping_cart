@@ -14,7 +14,7 @@ const Quantity = (props) => {
     <div className="quantity">
       <input type="number" value={itemAmount} onChange={handleChange} />
       <button onClick={() => props.addItem(props.item, itemAmount)}>
-        add to cart
+        {props.checkout ? "update" : "add to cart"}
       </button>
     </div>
   );
