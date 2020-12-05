@@ -146,7 +146,7 @@ function App() {
               <Shop products={products} itemToView={itemToView} />
             </Route>
             <Route path="/shopping-cart">
-              <ShoppingCart cart={cart} />
+              <ShoppingCart cart={cart} addItem={addItem} item={item} />
             </Route>
             <Route exact path="/:id">
               <ItemView addItem={addItem} item={item} />
