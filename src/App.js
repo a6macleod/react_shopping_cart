@@ -145,7 +145,9 @@ function App() {
             <Route exact path="/shop">
               <Shop products={products} itemToView={itemToView} />
             </Route>
-            <Route path="/shopping-cart" component={ShoppingCart} />
+            <Route path="/shopping-cart">
+              <ShoppingCart cart={cart} />
+            </Route>
             <Route exact path="/:id">
               <ItemView addItem={addItem} item={item} />
             </Route>
