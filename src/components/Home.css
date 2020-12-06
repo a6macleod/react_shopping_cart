@@ -1,0 +1,64 @@
+.home {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	margin-top: 1%;
+}
+.hero {
+	min-width: 50%;
+	min-height: 500px;
+	background-image: url("../images/imgEleven.jpg");
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-size: 100% 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: solid 1px black;
+}
+
+.mainLink {
+	font-size: 2rem;
+	color: #ccc;
+}
+
+.mainLink:hover {
+	color: #fff;
+}
+
+@media (max-width: 1000px) {
+	.home {
+		margin-top: 2%;
+	}
+
+	.hero {
+		min-height: 500px;
+		min-width: 75%;
+	}
+	.mainLink {
+		font-size: 1.5rem;
+	}
+}
+
+@media (max-width: 800px) {
+	.home {
+		margin-top: 3%;
+	}
+
+	.hero {
+		min-height: 400px;
+	}
+	.mainLink {
+		font-size: 1.5rem;
+	}
+}
+
+@media (max-width: 600px) {
+	.hero {
+		min-height: 300px;
+	}
+	.mainLink {
+		font-size: 1.4rem;
+	}
+}

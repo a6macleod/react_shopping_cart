@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+// JS components
 import Header from "./components/Header";
 import Home from "./components/Home";
 import Shop from "./components/Shop";
 import ItemView from "./components/ItemView";
 import ShoppingCart from "./components/ShoppingCart";
 import NoMatchPage from "./components/NoMatchPage";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import "./App.css";
+// images for products
 import imgOne from "./images/imgOne.jpg";
 import imgTwo from "./images/imgTwo.jpg";
 import imgThree from "./images/imgThree.jpg";
@@ -19,9 +20,11 @@ import imgNine from "./images/imgNine.jpg";
 import imgTen from "./images/imgTen.jpg";
 import imgEleven from "./images/imgEleven.jpg";
 import imgTwelve from "./images/imgTwelve.jpg";
+// css
+import "./App.css";
 
 function App() {
-  // Products for the store
+  // Products to purchase from the store
   const [products, setProducts] = useState([
     {
       id: "one",
@@ -122,13 +125,7 @@ function App() {
   };
 
   // the shopping cart
-  const [cartQuantity, setCartQuantity] = useState(0);
   const [cart, setCart] = useState([]);
-
-  // update the cart icon
-  useEffect(() => {
-    setCartQuantity(cart.length);
-  }, [cart]);
 
   // add an item to the cart state
   const addItem = (item, quantity = 1) => {
@@ -146,29 +143,36 @@ function App() {
       item.quantity = quantity;
       temp.push(item);
     }
-    console.log(temp);
     setCart(temp);
   };
+
+  // update the cart icon
+  const [cartQuantity, setCartQuantity] = useState(0);
+
+  useEffect(() => {
+    setCartQuantity(cart.length);
+  }, [cart]);
 
   return (
     <div className="App">
       <Router>
         <div>
           <Header cartQuantity={cartQuantity} />
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/shop">
-              <Shop products={products} itemToView={itemToView} />
-            </Route>
-            <Route path="/shopping-cart">
-              <ShoppingCart cart={cart} addItem={addItem} />
-            </Route>
-            <Route exact path="/:id">
-              <ItemView addItem={addItem} item={item} />
-            </Route>
-
-            <Route component={NoMatchPage} />
-          </Switch>
+          <div className="main">
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route exact path="/shop">
+                <Shop products={products} itemToView={itemToView} />
+              </Route>
+              <Route path="/shopping-cart">
+                <ShoppingCart cart={cart} addItem={addItem} />
+              </Route>
+              <Route exact path="/:id">
+                <ItemView addItem={addItem} item={item} />
+              </Route>
+              <Route component={NoMatchPage} />
+            </Switch>
+          </div>
         </div>
       </Router>
     </div>

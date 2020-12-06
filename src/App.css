@@ -2,19 +2,7 @@
   text-align: center;
 }
 
-.header {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  min-height: 10vh;
-  background-color: lightblue;
-}
-
-.header nav ul {
-  display: flex;
-}
-
-.header li {
-  padding-right: 20px;
-  list-style: none;
+.main {
+  min-height: 100vh;
+  background: linear-gradient(#fff, #eee);
 }

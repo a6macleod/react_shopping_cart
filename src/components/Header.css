@@ -1,0 +1,20 @@
+.header {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	min-height: 10vh;
+	background-color: #eee;
+}
+
+.header nav ul {
+	display: flex;
+}
+
+.header li {
+	padding-right: 40px;
+	list-style: none;
+}
+
+a {
+	color: #52525c;
+}
