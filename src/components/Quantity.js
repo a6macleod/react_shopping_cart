@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "./Quantity.css";
 
 const Quantity = (props) => {
   const [itemAmount, setItemAmount] = useState(1);
