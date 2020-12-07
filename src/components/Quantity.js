@@ -6,8 +6,6 @@ const Quantity = (props) => {
 
   useEffect(() => {
     if (props.checkout) {
-      // console.log("checkout!");
-      // console.log(props.item);
       setItemAmount(props.item.quantity);
     }
   }, []);
@@ -24,25 +22,19 @@ const Quantity = (props) => {
     }
   };
 
-  // const handleChange = (e) => {
-  //   if (e.target.value < 1) {
-  //     setItemAmount(1);
-  //   } else {
-  //     setItemAmount(e.target.value);
-  //   }
-  // };
   return (
     <div className="quantity">
       <h3>Quantity: {itemAmount}</h3>
-      <div>
-        <button className="increment" onClick={increment}>
-          +
-        </button>
-        <button className="decrement" onClick={decrement}>
-          -
-        </button>
+      <div className="buttonContainer">
+        <div className="plusMinusContainer">
+          <button className="increment" onClick={increment}>
+            +
+          </button>
+          <button className="decrement" onClick={decrement}>
+            -
+          </button>
+        </div>
       </div>
-      {/*<input type="number" value={itemAmount} onChange={handleChange} />*/}
       <button onClick={() => props.addItem(props.item, itemAmount)}>
         {props.checkout ? "update" : "add to cart"}
       </button>

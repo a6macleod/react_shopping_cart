@@ -1,0 +1,16 @@
+.buttonContainer {
+	display: flex;
+	justify-content: center;
+}
+
+.plusMinusContainer {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 75px;
+	margin-bottom: 20px;
+}
+
+.buttonContainer button {
+	width: 2em;
+}
