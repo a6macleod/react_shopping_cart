@@ -258,11 +258,11 @@ function App() {
           <Header cartQuantity={cartQuantity} />
           <div className="main">
             <Switch>
-              <Route exact path="react_shopping_cart/" component={Home} />
-              <Route exact path="react_shopping_cart/shop">
+              <Route exact path="/" component={Home} />
+              <Route exact path="/shop">
                 <Shop products={products} itemToView={itemToView} />
               </Route>
-              <Route path="react_shopping_cart/shopping-cart">
+              <Route exact path="/shopping-cart">
                 <ShoppingCart
                   cart={cart}
                   addItem={addItem}
@@ -271,7 +271,7 @@ function App() {
                   removeItemFromCart={removeItemFromCart}
                 />
               </Route>
-              <Route exact path="react_shopping_cart/:id">
+              <Route exact path="/:id">
                 <ItemView addItem={addItem} item={item} />
               </Route>
               <Route component={NoMatchPage} />
