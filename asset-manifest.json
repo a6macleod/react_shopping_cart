@@ -1,0 +1,32 @@
+{
+  "files": {
+    "main.css": "/react_shopping_cart/static/css/main.8cf64f35.chunk.css",
+    "main.js": "/react_shopping_cart/static/js/main.1cbdaa1d.chunk.js",
+    "main.js.map": "/react_shopping_cart/static/js/main.1cbdaa1d.chunk.js.map",
+    "runtime-main.js": "/react_shopping_cart/static/js/runtime-main.f4b65636.js",
+    "runtime-main.js.map": "/react_shopping_cart/static/js/runtime-main.f4b65636.js.map",
+    "static/js/2.cb6a545f.chunk.js": "/react_shopping_cart/static/js/2.cb6a545f.chunk.js",
+    "static/js/2.cb6a545f.chunk.js.map": "/react_shopping_cart/static/js/2.cb6a545f.chunk.js.map",
+    "index.html": "/react_shopping_cart/index.html",
+    "static/css/main.8cf64f35.chunk.css.map": "/react_shopping_cart/static/css/main.8cf64f35.chunk.css.map",
+    "static/js/2.cb6a545f.chunk.js.LICENSE.txt": "/react_shopping_cart/static/js/2.cb6a545f.chunk.js.LICENSE.txt",
+    "static/media/imgEight.bd96cf9b.jpg": "/react_shopping_cart/static/media/imgEight.bd96cf9b.jpg",
+    "static/media/Home.css": "/react_shopping_cart/static/media/imgEleven.e837ee95.jpg",
+    "static/media/imgFive.ac995331.jpg": "/react_shopping_cart/static/media/imgFive.ac995331.jpg",
+    "static/media/imgFour.bb1a43f9.jpg": "/react_shopping_cart/static/media/imgFour.bb1a43f9.jpg",
+    "static/media/imgNine.f68b7213.jpg": "/react_shopping_cart/static/media/imgNine.f68b7213.jpg",
+    "static/media/imgOne.56443fac.jpg": "/react_shopping_cart/static/media/imgOne.56443fac.jpg",
+    "static/media/imgSeven.0b0fd61b.jpg": "/react_shopping_cart/static/media/imgSeven.0b0fd61b.jpg",
+    "static/media/imgSix.e050413e.jpg": "/react_shopping_cart/static/media/imgSix.e050413e.jpg",
+    "static/media/imgTen.96cafcc8.jpg": "/react_shopping_cart/static/media/imgTen.96cafcc8.jpg",
+    "static/media/imgThree.e547a176.jpg": "/react_shopping_cart/static/media/imgThree.e547a176.jpg",
+    "static/media/imgTwelve.06f2eee7.jpg": "/react_shopping_cart/static/media/imgTwelve.06f2eee7.jpg",
+    "static/media/imgTwo.3e8f3259.jpg": "/react_shopping_cart/static/media/imgTwo.3e8f3259.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f4b65636.js",
+    "static/js/2.cb6a545f.chunk.js",
+    "static/css/main.8cf64f35.chunk.css",
+    "static/js/main.1cbdaa1d.chunk.js"
+  ]
+}
