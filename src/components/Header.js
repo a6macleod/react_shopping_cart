@@ -4,7 +4,7 @@ import "./Header.css";
 const Header = (props) => {
   return (
     <div className="header">
-      <Link to="/">
+      <Link to="react_shopping_cart/">
         <h2>Ye Olde Brick Shoppe</h2>
       </Link>
       <nav>
@@ -12,7 +12,7 @@ const Header = (props) => {
           <Link to="/shop">
             <li>Shop</li>
           </Link>
-          <Link to="/shopping-cart">
+          <Link to="react_shopping_cart/shopping-cart">
             <li>
               <i className="fas fa-shopping-cart">{props.cartQuantity}</i>
             </li>
