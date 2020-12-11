@@ -43,7 +43,7 @@ const ShoppingCart = (props) => {
     <div className="cartItem">
       <div className="image"></div>
       <div className="title">
-        <h4>Empty</h4>
+        <h4>Your cart is empty</h4>
       </div>
       <div className="amount"></div>
     </div>
@@ -51,9 +51,15 @@ const ShoppingCart = (props) => {
 
   const cartDetails = props.cart.map((cartItem) => (
     <div key={cartItem.id} className="cartItem">
-      <img src={cartItem.img} alt={cartItem.discription} />
-      <h4>{cartItem.name}</h4>
-      <Quantity addItem={props.addItem} item={cartItem} checkout={checkout} />
+      <div className="imageContainer">
+        <img src={cartItem.img} alt={cartItem.discription} />
+      </div>
+      <div className="headerContainer">
+        <h4>{cartItem.name}</h4>
+      </div>
+      <div className="quantityContainer">
+        <Quantity addItem={props.addItem} item={cartItem} checkout={checkout} />
+      </div>
     </div>
   ));
 
@@ -65,11 +71,13 @@ const ShoppingCart = (props) => {
         </div>
       </div>
       <div className="totalsContainer">
-        <p className="subtotal">SUBTOTAL: {`$${checkoutCost.subtotal}`}</p>
-        <p className="tax">TAX: {`$${checkoutCost.tax}`}</p>
-        <p className="shipping">SHIPPING: {`$${checkoutCost.shipping}`}</p>
-        <h4 className="total">TOTAL: {`$${checkoutCost.total}`}</h4>
-        <button className="checkout">CHECKOUT</button>
+        <div className="totals">
+          <p className="subtotal">SUBTOTAL: {`$${checkoutCost.subtotal}`}</p>
+          <p className="tax">TAX: {`$${checkoutCost.tax}`}</p>
+          <p className="shipping">SHIPPING: {`$${checkoutCost.shipping}`}</p>
+          <h4 className="total">TOTAL: {`$${checkoutCost.total}`}</h4>
+          <button className="checkout">CHECKOUT</button>
+        </div>
       </div>
     </div>
   );
