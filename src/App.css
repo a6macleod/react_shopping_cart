@@ -1,8 +1,13 @@
 .App {
-  text-align: center;
+	text-align: center;
 }
 
 .main {
-  min-height: 100vh;
-  background: linear-gradient(#fff, #eee);
+	min-height: 100vh;
+	background: linear-gradient(#fff, #eee);
+}
+
+/* remove all links underline */
+.App > * a:link {
+	text-decoration: none;
 }

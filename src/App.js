@@ -184,6 +184,20 @@ function App() {
     setCart(temp);
   };
 
+  const minusQuantityOfItem = (item) => {
+    const temp = cart.slice();
+    for (let cartItem of temp) {
+      // update quantity for item already in cart
+      if (cartItem.id === item.id) {
+        cartItem.quantity = Number(cartItem.quantity) - 1;
+      }
+      if (cartItem.quantity < 1) {
+        cartItem.quantity = 1;
+      }
+    }
+    setCart(temp);
+  };
+
   // shopping cart prices, totals, subtotals
   const [checkoutCost, setCheckoutCost] = useState({
     subtotal: 0,
@@ -205,6 +219,7 @@ function App() {
       let tempShipping = cart.length * 10000;
       return tempShipping;
     };
+
     const subtotal = getSubtotal();
     const tax = subtotal * 0.113;
     const shipping = getShipping();
@@ -241,6 +256,7 @@ function App() {
                   cart={cart}
                   addItem={addItem}
                   checkoutCost={checkoutCost}
+                  minusQuantityOfItem={minusQuantityOfItem}
                 />
               </Route>
               <Route exact path="/:id">

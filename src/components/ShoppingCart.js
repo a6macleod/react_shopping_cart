@@ -26,7 +26,24 @@ const ShoppingCart = (props) => {
         <p>Price: ${priceConverter(cartItem.cost)}</p>
       </div>
       <div className="quantityContainer">
-        <Quantity addItem={props.addItem} item={cartItem} checkout={checkout} />
+        <h4>Quantity: {cartItem.quantity}</h4>
+        <div className="buttonContainer">
+          <div className="plusMinusContainer">
+            <button
+              className="increment"
+              onClick={() => props.addItem(cartItem, 1)}
+            >
+              +
+            </button>
+            <button
+              className="decrement"
+              onClick={() => props.minusQuantityOfItem(cartItem)}
+            >
+              -
+            </button>
+          </div>
+        </div>
+        {/*<Quantity addItem={props.addItem} item={cartItem} checkout={checkout} />*/}
       </div>
       <div className="deleteItem">
         <button>Remove Item</button>

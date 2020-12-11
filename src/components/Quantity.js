@@ -36,7 +36,7 @@ const Quantity = (props) => {
         </div>
       </div>
       <button onClick={() => props.addItem(props.item, itemAmount)}>
-        {props.checkout ? "update" : "add to cart"}
+        add to cart
       </button>
     </div>
   );
