@@ -4,11 +4,13 @@
 }
 
 .totals {
+	grid-column: 2;
 	border: solid 1px black;
 	padding: 30px;
 }
 
 .cartDisplayContainer {
+	grid-column: 1;
 	margin-top: 3%;
 	margin-left: 3%;
 	grid-column: 1;
@@ -22,6 +24,7 @@
 	justify-content: center;
 	width: 100%;
 }
+
 .cartItem {
 	border: 1px solid black;
 	width: 500px;
@@ -46,8 +49,10 @@
 	align-items: center;
 	justify-content: center;
 }
+.quantityContainer {
+	flex-direction: column;
+}
 
-/* make image a little bigger than the other containers */
 .shoppingCart .imageContainer {
 	width: 200px;
 	border-right: solid 1px black;
@@ -66,13 +71,26 @@
 	flex-direction: column;
 }
 
-.quantityContainer {
-}
+@media (max-width: 900px) {
+	.shoppingCart {
+		grid-template-columns: 1fr 2fr 1fr;
+		justify-items: center;
+	}
+	.cartDisplayContainer,
+	.totalsContainer {
+		grid-column: 2;
+	}
 
-.deleteItem {
-}
+	.totalsContainer {
+		grid-row-start: 1;
+		padding: 0;
+		width: 300px;
+		display: flex;
+		justify-content: center;
+	}
 
-.totalsContainer,
-.quantityContainer,
-.headerContainer {
+	.cartItem {
+		width: 500px;
+		padding: 0;
+	}
 }

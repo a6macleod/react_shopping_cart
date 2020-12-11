@@ -1,11 +1,8 @@
-import { useState, useEffect } from "react";
-import Quantity from "./Quantity";
 import priceConverter from "./moneyFunctions";
 import "./ShoppingCart.css";
 
 const ShoppingCart = (props) => {
   // tells Quantity to view from the shoppingcart
-  const checkout = true;
   const isCartEmpty = props.cart.length > 0 ? false : true;
 
   const emptyCart = (
@@ -43,7 +40,6 @@ const ShoppingCart = (props) => {
             </button>
           </div>
         </div>
-        {/*<Quantity addItem={props.addItem} item={cartItem} checkout={checkout} />*/}
       </div>
       <div className="deleteItem">
         <button>Remove Item</button>
