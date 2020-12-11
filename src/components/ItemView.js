@@ -1,4 +1,5 @@
 import Quantity from "./Quantity";
+import priceConverter from "./moneyFunctions";
 import "./ItemView.css";
 
 const ItemView = (props) => {
@@ -10,7 +11,7 @@ const ItemView = (props) => {
       </div>
       <div className="itemInfo">
         <p>{props.item.description}</p>
-        <h4>${props.item.cost}</h4>
+        <h4>${priceConverter(props.item.cost)}</h4>
         <Quantity addItem={props.addItem} item={props.item} />
       </div>
     </div>

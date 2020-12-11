@@ -1,51 +1,18 @@
 import { useState, useEffect } from "react";
 import Quantity from "./Quantity";
+import priceConverter from "./moneyFunctions";
 import "./ShoppingCart.css";
 
 const ShoppingCart = (props) => {
   // tells Quantity to view from the shoppingcart
   const checkout = true;
   const isCartEmpty = props.cart.length > 0 ? false : true;
-  const [checkoutCost, setCheckoutCost] = useState({
-    subtotal: 0.0,
-    tax: 0.0,
-    shipping: 0.0,
-    total: 0.0,
-  });
-
-  const getSubtotal = () => {
-    let tempSubtotal = 0;
-    props.cart.forEach((cartItem) => {
-      tempSubtotal = tempSubtotal + cartItem.quantity * cartItem.cost;
-    });
-    return tempSubtotal;
-  };
-
-  const getShipping = () => {
-    let tempShipping = props.cart.length * 100;
-    return tempShipping;
-  };
-
-  useEffect(() => {
-    const subtotal = getSubtotal();
-    const tax = subtotal * 0.113;
-    const shipping = getShipping();
-    const total = subtotal + tax + shipping;
-    setCheckoutCost({
-      subtotal: parseFloat(subtotal).toFixed(2),
-      tax: parseFloat(tax).toFixed(2),
-      shipping: parseFloat(shipping).toFixed(2),
-      total: parseFloat(total).toFixed(2),
-    });
-  }, [props.cart]);
 
   const emptyCart = (
     <div className="cartItem">
-      <div className="image"></div>
-      <div className="title">
+      <div className="emptyCart">
         <h4>Your cart is empty</h4>
       </div>
-      <div className="amount"></div>
     </div>
   );
 
@@ -56,9 +23,13 @@ const ShoppingCart = (props) => {
       </div>
       <div className="headerContainer">
         <h4>{cartItem.name}</h4>
+        <p>Price: ${priceConverter(cartItem.cost)}</p>
       </div>
       <div className="quantityContainer">
         <Quantity addItem={props.addItem} item={cartItem} checkout={checkout} />
+      </div>
+      <div className="deleteItem">
+        <button>Remove Item</button>
       </div>
     </div>
   ));
@@ -72,10 +43,14 @@ const ShoppingCart = (props) => {
       </div>
       <div className="totalsContainer">
         <div className="totals">
-          <p className="subtotal">SUBTOTAL: {`$${checkoutCost.subtotal}`}</p>
-          <p className="tax">TAX: {`$${checkoutCost.tax}`}</p>
-          <p className="shipping">SHIPPING: {`$${checkoutCost.shipping}`}</p>
-          <h4 className="total">TOTAL: {`$${checkoutCost.total}`}</h4>
+          <p className="subtotal">
+            SUBTOTAL: {`$${props.checkoutCost.subtotal}`}
+          </p>
+          <p className="tax">TAX: {`$${props.checkoutCost.tax}`}</p>
+          <p className="shipping">
+            SHIPPING: {`$${props.checkoutCost.shipping}`}
+          </p>
+          <h4 className="total">TOTAL: {`$${props.checkoutCost.total}`}</h4>
           <button className="checkout">CHECKOUT</button>
         </div>
       </div>

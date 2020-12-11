@@ -20,6 +20,8 @@ import imgNine from "./images/imgNine.jpg";
 import imgTen from "./images/imgTen.jpg";
 import imgEleven from "./images/imgEleven.jpg";
 import imgTwelve from "./images/imgTwelve.jpg";
+// helper functions
+import priceConverter from "./components/moneyFunctions";
 // css
 import "./App.css";
 
@@ -33,7 +35,7 @@ function App() {
       description:
         "An artfully crafted brick wall. This wall includes many varieties of styles and different formats including circular, angled, arches, and patterned. Perfect for schools and municipal buildings",
       img: imgOne,
-      cost: 1000,
+      cost: 100000,
     },
     {
       id: "two",
@@ -42,7 +44,7 @@ function App() {
       description:
         "A simple yet elegantly patterned brick wall. This wall is perfect for drawing the eye yet highlighting hanging artwork. Perfect for lofts and art studios",
       img: imgTwo,
-      cost: 200,
+      cost: 20000,
     },
 
     {
@@ -52,7 +54,7 @@ function App() {
       description:
         "New bright red brick overlaying a solid older foundation. Nothing beats a settled solid old foundation. The test of time has proven that the founcation is settled and unlikely to move and will highlight the bright red newer section. Perfect for that refurbished look for revitilized factory districts.",
       img: imgThree,
-      cost: 150,
+      cost: 15000,
     },
 
     {
@@ -62,7 +64,7 @@ function App() {
       description:
         "A solid brick wall that was painted white and aged. The aged look gives it a subtle character perfet to highlight acents and art. Good for revitilized factory loft apartments.",
       img: imgFour,
-      cost: 100,
+      cost: 10000,
     },
 
     {
@@ -72,7 +74,7 @@ function App() {
       description:
         "An affordable wall option for what is likely brick. You get a solid wall at a great price and sure looks like brick.",
       img: imgFive,
-      cost: 25,
+      cost: 2500,
     },
 
     {
@@ -82,7 +84,7 @@ function App() {
       description:
         "Very hip and cool bright purple brick wall. Sure to turn heads with this brick wall, it is perfect for night clubs and bar districts.",
       img: imgSix,
-      cost: 700,
+      cost: 70000,
     },
 
     {
@@ -92,7 +94,7 @@ function App() {
       description:
         "This framed brick wall is a nice calming teal color. This wall is perfect for coffee shops where art is framed and naturally draws the eye. The teal is soft and calming which brings pleasant moods for morning coffee.",
       img: imgSeven,
-      cost: 600,
+      cost: 60000,
     },
 
     {
@@ -102,7 +104,7 @@ function App() {
       description:
         "This DIY build your own brick wall is perfect for Christmas! Have the opportunity to build your confidence as you build your own brick wall!",
       img: imgEight,
-      cost: 50,
+      cost: 5000,
     },
 
     {
@@ -112,7 +114,7 @@ function App() {
       description:
         "This old brick wall is tried and true. The test of time has proven that you can't beat an old brick wall for its affordability and its proven reliability. Perfect general wall for any space.",
       img: imgNine,
-      cost: 90,
+      cost: 9000,
     },
 
     {
@@ -122,7 +124,7 @@ function App() {
       description:
         "This is a reliable mix of new and old brick wall which makes a solid wall. This is pleasing to the eye and sturdy. Get the benefits of both a shiny new wall and the reliablity of an old brick wall.",
       img: imgTen,
-      cost: 120,
+      cost: 12000,
     },
 
     {
@@ -132,7 +134,7 @@ function App() {
       description:
         "This brand new brick wall is polished and sharp. This is perfect for new high end row houses. Be sure to impress the neighbors with your new brick!",
       img: imgEleven,
-      cost: 1000,
+      cost: 100000,
     },
 
     {
@@ -142,7 +144,7 @@ function App() {
       description:
         "This old brick wall is as sturdy as they come. When shiny and new isn't needed this brick is perfect to hold the wall where it matters. Bargin prices and a quality wall.",
       img: imgTwelve,
-      cost: 40,
+      cost: 4000,
     },
   ]);
 
@@ -182,6 +184,40 @@ function App() {
     setCart(temp);
   };
 
+  // shopping cart prices, totals, subtotals
+  const [checkoutCost, setCheckoutCost] = useState({
+    subtotal: 0,
+    tax: 0,
+    shipping: 0,
+    total: 0,
+  });
+
+  useEffect(() => {
+    const getSubtotal = () => {
+      let tempSubtotal = 0;
+      cart.forEach((cartItem) => {
+        tempSubtotal = tempSubtotal + cartItem.quantity * cartItem.cost;
+      });
+      return tempSubtotal;
+    };
+
+    const getShipping = () => {
+      let tempShipping = cart.length * 10000;
+      return tempShipping;
+    };
+    const subtotal = getSubtotal();
+    const tax = subtotal * 0.113;
+    const shipping = getShipping();
+    const total = subtotal + tax + shipping;
+
+    setCheckoutCost({
+      subtotal: parseFloat(priceConverter(subtotal)).toFixed(2),
+      tax: parseFloat(priceConverter(tax)).toFixed(2),
+      shipping: parseFloat(priceConverter(shipping)).toFixed(2),
+      total: parseFloat(priceConverter(total)).toFixed(2),
+    });
+  }, [cart]);
+
   // update the cart icon
   const [cartQuantity, setCartQuantity] = useState(0);
 
@@ -201,7 +237,11 @@ function App() {
                 <Shop products={products} itemToView={itemToView} />
               </Route>
               <Route path="/shopping-cart">
-                <ShoppingCart cart={cart} addItem={addItem} />
+                <ShoppingCart
+                  cart={cart}
+                  addItem={addItem}
+                  checkoutCost={checkoutCost}
+                />
               </Route>
               <Route exact path="/:id">
                 <ItemView addItem={addItem} item={item} />
