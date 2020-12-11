@@ -198,6 +198,17 @@ function App() {
     setCart(temp);
   };
 
+  const removeItemFromCart = (item) => {
+    const temp = [];
+    for (let cartItem of cart) {
+      // add all items to the new cart except for removed item
+      if (cartItem.id !== item.id) {
+        temp.push(cartItem);
+      }
+    }
+    setCart(temp);
+  };
+
   // shopping cart prices, totals, subtotals
   const [checkoutCost, setCheckoutCost] = useState({
     subtotal: 0,
@@ -257,6 +268,7 @@ function App() {
                   addItem={addItem}
                   checkoutCost={checkoutCost}
                   minusQuantityOfItem={minusQuantityOfItem}
+                  removeItemFromCart={removeItemFromCart}
                 />
               </Route>
               <Route exact path="/:id">

@@ -42,7 +42,9 @@ const ShoppingCart = (props) => {
         </div>
       </div>
       <div className="deleteItem">
-        <button>Remove Item</button>
+        <button onClick={() => props.removeItemFromCart(cartItem)}>
+          Remove Item
+        </button>
       </div>
     </div>
   ));
