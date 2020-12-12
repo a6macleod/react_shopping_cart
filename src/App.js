@@ -271,10 +271,10 @@ function App() {
                   removeItemFromCart={removeItemFromCart}
                 />
               </Route>
-              <Route exact path="react_shopping_cart/:id">
+              <Route exact path="react_shopping_cart/item/:id">
                 <ItemView addItem={addItem} item={item} />
               </Route>
-              <Route component={NoMatchPage} />
+              <Route path="react_shopping_cart/" component={Home} />
             </Switch>
           </div>
         </div>
