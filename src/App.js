@@ -271,7 +271,7 @@ function App() {
                   removeItemFromCart={removeItemFromCart}
                 />
               </Route>
-              <Route exact path="/item/:id">
+              <Route exact path="/:id">
                 <ItemView addItem={addItem} item={item} />
               </Route>
               <Route component={NoMatchPage} />
