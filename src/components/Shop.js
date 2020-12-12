@@ -9,7 +9,7 @@ const Shop = (props) => {
           return (
             <div key={item.id} className={`item ${item.id}`}>
               <Link
-                to={`react_shopping_cart/item${item.id}`}
+                to={`/item${item.id}`}
                 onClick={() => props.itemToView(item)}
               >
                 <h4>{item.name}</h4>

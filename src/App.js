@@ -253,16 +253,16 @@ function App() {
 
   return (
     <div className="App">
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <div>
           <Header cartQuantity={cartQuantity} />
           <div className="main">
             <Switch>
-              <Route exact path="react_shopping_cart/" component={Home} />
-              <Route exact path="react_shopping_cart/shop">
+              <Route exact path="/" component={Home} />
+              <Route exact path="/shop">
                 <Shop products={products} itemToView={itemToView} />
               </Route>
-              <Route exact path="react_shopping_cart/shopping-cart">
+              <Route exact path="/shopping-cart">
                 <ShoppingCart
                   cart={cart}
                   addItem={addItem}
@@ -271,10 +271,10 @@ function App() {
                   removeItemFromCart={removeItemFromCart}
                 />
               </Route>
-              <Route exact path="react_shopping_cart/item/:id">
+              <Route exact path="/item/:id">
                 <ItemView addItem={addItem} item={item} />
               </Route>
-              <Route path="react_shopping_cart/" component={Home} />
+              <Route component={NoMatchPage} />
             </Switch>
           </div>
         </div>
