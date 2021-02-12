@@ -49,7 +49,7 @@ function App() {
 
     {
       id: "three",
-      name: "Red Brick over Old Brick Wall",
+      name: "Red Brick Over Old Brick Wall",
       brief: "Newer red brick overlaying an older foundation.",
       description:
         "New bright red brick overlaying a solid older foundation. Nothing beats a settled solid old foundation. The test of time has proven that the founcation is settled and unlikely to move and will highlight the bright red newer section. Perfect for that refurbished look for revitilized factory districts.",

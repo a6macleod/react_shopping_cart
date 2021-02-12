@@ -1,9 +1,10 @@
 .header {
 	display: flex;
-	justify-content: space-around;
+	justify-content: space-between;
+	padding: 0 20px;
 	align-items: center;
 	min-height: 70px;
-	background-color: #eee;
+	background-color: hsl(0, 10%, 95%);
 }
 
 .header nav ul {
@@ -16,5 +17,42 @@
 }
 
 a {
-	color: #52525c;
+	color: hsl(0, 5%, 20%);
+	font-weight: bold;
+}
+
+@media (max-width: 600px) {
+	.header {
+		min-height: 50px;
+	}
+
+	.header > * {
+		font-size: 12px;
+	}
+
+	.header h2 {
+		font-size: 12px;
+	}
+
+	.header li {
+		padding-right: 10px;
+	}
+}
+
+@media (max-width: 350px) {
+	.header {
+		min-height: 30px;
+	}
+
+	.header > * {
+		font-size: 12px;
+	}
+
+	.header h2 {
+		font-size: 12px;
+	}
+
+	.header li {
+		padding-right: 10px;
+	}
 }

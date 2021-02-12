@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "./Quantity.css";
 
 const Quantity = (props) => {
@@ -35,9 +36,11 @@ const Quantity = (props) => {
           </button>
         </div>
       </div>
-      <button onClick={() => props.addItem(props.item, itemAmount)}>
-        add to cart
-      </button>
+      <Link to="/shopping-cart">
+        <button onClick={() => props.addItem(props.item, itemAmount)}>
+          add to cart
+        </button>
+      </Link>
     </div>
   );
 };

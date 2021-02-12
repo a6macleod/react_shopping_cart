@@ -13,8 +13,9 @@ const ItemView = (props) => {
       </div>
       <div className="itemInfo">
         <div className="infoContainer">
-          <p>{props.item.description}</p>
           <h4>${priceConverter(props.item.cost)}</h4>
+          <p>{props.item.description}</p>
+
           <Quantity addItem={props.addItem} item={props.item} />
         </div>
       </div>

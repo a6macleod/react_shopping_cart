@@ -1,8 +1,8 @@
 .itemView {
-	margin-top: 1%;
 	padding-bottom: 3%;
 	display: flex;
 	justify-content: space-evenly;
+	background: linear-gradient(hsl(0, 10%, 95%), hsl(0, 30%, 90%));
 }
 
 .imgContainer {
@@ -22,11 +22,31 @@
 
 .infoContainer {
 	max-width: 400px;
+	text-align: left;
+}
+.infoContainer p {
+	line-height: 2;
+}
+
+.infoContainer .buttonContainer {
+	justify-content: left;
 }
 
 @media (max-width: 1000px) {
 	.itemView {
 		flex-direction: column;
 		align-items: center;
+	}
+
+	.infoContainer {
+		text-align: center;
+	}
+
+	.infoContainer p {
+		text-align: left;
+	}
+
+	.infoContainer .buttonContainer {
+		justify-content: center;
 	}
 }

@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import priceConverter from "./moneyFunctions";
 import "./Shop.css";
 
 const Shop = (props) => {
@@ -14,6 +15,7 @@ const Shop = (props) => {
                   <img src={item.img} alt={item.brief} />
                 </div>
                 <p>{item.brief}</p>
+                <p>${priceConverter(item.cost)}</p>
               </Link>
             </div>
           );
