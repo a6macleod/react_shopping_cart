@@ -2,7 +2,7 @@
 	padding-bottom: 3%;
 	display: flex;
 	justify-content: space-evenly;
-	background: linear-gradient(hsl(0, 10%, 95%), hsl(0, 30%, 90%));
+	background-color: hsl(0, 10%, 95%);
 }
 
 .imgContainer {
@@ -24,6 +24,11 @@
 	max-width: 400px;
 	text-align: left;
 }
+
+.infoContainer h4 {
+	font-size: 20px;
+}
+
 .infoContainer p {
 	line-height: 2;
 }
@@ -48,5 +53,33 @@
 
 	.infoContainer .buttonContainer {
 		justify-content: center;
+	}
+}
+
+@media (max-width: 1000px) {
+	.itemView h2 {
+		font-size: 16px;
+	}
+
+	.imgContainer {
+		max-width: 350px;
+	}
+
+	.infoContainer {
+		max-width: 350px;
+	}
+}
+
+@media (max-width: 380px) {
+	.itemView h2 {
+		font-size: 12px;
+	}
+
+	.imgContainer {
+		max-width: 220px;
+	}
+
+	.infoContainer {
+		max-width: 220px;
 	}
 }

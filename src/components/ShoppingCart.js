@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import priceConverter from "./moneyFunctions";
 import "./ShoppingCart.css";
 
@@ -20,10 +21,10 @@ const ShoppingCart = (props) => {
       </div>
       <div className="headerContainer">
         <h4>{cartItem.name}</h4>
-        <p>Price: ${priceConverter(cartItem.cost)}</p>
+        <p>${priceConverter(cartItem.cost)} each</p>
       </div>
       <div className="quantityContainer">
-        <h4>Quantity: {cartItem.quantity}</h4>
+        <h4>{cartItem.quantity} walls</h4>
         <div className="buttonContainer">
           <div className="plusMinusContainer">
             <button
@@ -52,6 +53,9 @@ const ShoppingCart = (props) => {
   return (
     <div className="shoppingCart">
       <div className="cartDisplayContainer">
+        <Link to="/shop">
+          <button>Keep Shopping!</button>
+        </Link>
         <div className="cartDisplay">
           {isCartEmpty ? emptyCart : cartDetails}
         </div>

@@ -1,12 +1,15 @@
 .shoppingCart {
 	display: grid;
 	grid-template-columns: 2fr 1fr;
+	background-color: hsl(0, 10%, 95%);
+	/* viewheight - header*/
+	min-height: calc(100vh - 70px);
 }
 
 .totals {
 	grid-column: 2;
-	border: solid 1px black;
 	padding: 30px;
+	text-align: right;
 }
 
 .cartDisplayContainer {
