@@ -28,11 +28,11 @@ const Quantity = (props) => {
       <h3>Quantity: {itemAmount}</h3>
       <div className="buttonContainer">
         <div className="plusMinusContainer">
-          <button className="increment tertiaryButton" onClick={increment}>
-            +
-          </button>
           <button className="decrement tertiaryButton" onClick={decrement}>
             -
+          </button>
+          <button className="increment tertiaryButton" onClick={increment}>
+            +
           </button>
         </div>
       </div>

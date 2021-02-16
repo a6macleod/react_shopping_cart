@@ -2,8 +2,13 @@
 	display: grid;
 	grid-template-columns: 2fr 1fr;
 	background-color: hsl(0, 10%, 95%);
-	/* viewheight - header*/
+	/* viewheight - header height*/
 	min-height: calc(100vh - 70px);
+}
+
+/* Totals and checkout button */
+.totalsContainer {
+	display: flex;
 }
 
 .totals {
@@ -12,15 +17,56 @@
 	text-align: right;
 }
 
-.cartDisplayContainer {
+.checkout {
+	background-color: hsl(185, 40%, 50%);
+	border-radius: 3px;
+	padding: 25px;
+	border: hsl(185, 20%, 30%) solid 1px;
+	color: hsl(0, 0%, 100%);
+}
+
+.checkout:hover {
+	cursor: pointer;
+	border: hsl(185, 40%, 50%) solid 1px;
+	background-color: hsl(185, 20%, 30%);
+}
+
+/* Itemized Cart details */
+.cartItemsContainer {
 	grid-column: 1;
 	margin-top: 3%;
 	margin-left: 3%;
 	grid-column: 1;
 	display: flex;
+	flex-direction: column;
+}
+
+.cartDisplayContainer {
+	display: flex;
 	justify-content: center;
 }
 
+/* button to lead back to the shop */
+.keepShoppingContainer {
+	margin-bottom: 40px;
+}
+
+.keepShoppingContainer button {
+	border: hsl(185, 40%, 50%) solid 2px;
+	border-radius: 3px;
+	background-color: hsl(0, 10%, 95%);
+	font-size: 16px;
+	padding: 10px;
+}
+
+.keepShoppingContainer button:hover {
+	background-color: hsl(185, 40%, 50%);
+	color: hsl(0, 0%, 100%);
+	cursor: pointer;
+	border: hsl(0, 0%, 100%) solid 2px;
+}
+
+/* Display for when the cart is empty */
 .emptyCart {
 	display: flex;
 	align-items: center;
@@ -29,36 +75,34 @@
 }
 
 .cartItem {
-	border: 1px solid black;
 	width: 500px;
 	display: flex;
-}
-
-.cartItem:last-child {
-	border-bottom: 1px solid black;
-}
-
-.headerContainer,
-.quantityContainer {
-	border-right: solid 1px black;
 }
 
 .headerContainer,
 .quantityContainer,
 .deleteItem {
 	width: 150px;
-	padding: 10px;
+	padding-left: 10px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 }
+
+.headerContainer h4 {
+	margin: 5;
+}
+
+.normalWeight {
+	font-weight: normal;
+}
+
 .quantityContainer {
 	flex-direction: column;
 }
 
 .shoppingCart .imageContainer {
 	width: 200px;
-	border-right: solid 1px black;
 	padding: 10px;
 	display: flex;
 }
@@ -75,11 +119,17 @@
 }
 
 .deleteItem button {
-	background-color: #ff0000;
-	border-radius: 5px;
+	background-color: none;
 	border: none;
+	border-radius: 3px;
 	padding: 5px;
-	color: #e6e6e6;
+	background-color: hsl(0, 10%, 95%);
+}
+
+.deleteItem button:hover {
+	background-color: hsl(0, 50%, 50%);
+	color: hsl(0, 10%, 95%);
+	cursor: pointer;
 }
 
 @media (max-width: 900px) {

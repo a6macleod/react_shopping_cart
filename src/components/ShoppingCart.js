@@ -22,42 +22,50 @@ const ShoppingCart = (props) => {
       <div className="headerContainer">
         <h4>{cartItem.name}</h4>
         <p>${priceConverter(cartItem.cost)} each</p>
-      </div>
-      <div className="quantityContainer">
-        <h4>{cartItem.quantity} walls</h4>
-        <div className="buttonContainer">
-          <div className="plusMinusContainer">
-            <button
-              className="increment"
-              onClick={() => props.addItem(cartItem, 1)}
-            >
-              +
-            </button>
-            <button
-              className="decrement"
-              onClick={() => props.minusQuantityOfItem(cartItem)}
-            >
-              -
-            </button>
+        <div className="quantityContainer">
+          <h4>
+            {cartItem.quantity} <span className="normalWeight">walls</span>
+          </h4>
+          <div className="buttonContainer">
+            <div className="plusMinusContainer">
+              <button
+                className="decrement"
+                onClick={() => props.minusQuantityOfItem(cartItem)}
+              >
+                -
+              </button>
+              <button
+                className="increment"
+                onClick={() => props.addItem(cartItem, 1)}
+              >
+                +
+              </button>
+            </div>
           </div>
         </div>
-      </div>
-      <div className="deleteItem">
-        <button onClick={() => props.removeItemFromCart(cartItem)}>
-          Remove Item
-        </button>
+        <div className="deleteItem">
+          <button onClick={() => props.removeItemFromCart(cartItem)}>
+            Remove Item
+          </button>
+        </div>
       </div>
     </div>
   ));
 
   return (
     <div className="shoppingCart">
-      <div className="cartDisplayContainer">
-        <Link to="/shop">
-          <button>Keep Shopping!</button>
-        </Link>
-        <div className="cartDisplay">
-          {isCartEmpty ? emptyCart : cartDetails}
+      <div className="cartItemsContainer">
+        <div className="keepShoppingContainer">
+          <Link to="/shop">
+            <button>
+              <i className="fas fa-arrow-left"></i> Keep Shopping!
+            </button>
+          </Link>
+        </div>
+        <div className="cartDisplayContainer">
+          <div className="cartDisplay">
+            {isCartEmpty ? emptyCart : cartDetails}
+          </div>
         </div>
       </div>
       <div className="totalsContainer">
