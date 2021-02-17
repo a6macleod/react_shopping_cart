@@ -28,17 +28,17 @@ const Quantity = (props) => {
       <h3>Quantity: {itemAmount}</h3>
       <div className="buttonContainer">
         <div className="plusMinusContainer">
-          <button className="decrement tertiaryButton" onClick={decrement}>
+          <button className="decrement secondaryButton" onClick={decrement}>
             -
           </button>
-          <button className="increment tertiaryButton" onClick={increment}>
+          <button className="increment secondaryButton" onClick={increment}>
             +
           </button>
         </div>
       </div>
       <Link to="/shopping-cart">
         <button
-          className="secondaryButton"
+          className="primaryButton"
           onClick={() => props.addItem(props.item, itemAmount)}
         >
           add to cart
