@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-// JS components
+
 import Header from "./components/Header";
-import Home from "./components/Home";
-import Shop from "./components/Shop";
-import ItemView from "./components/ItemView";
-import ShoppingCart from "./components/ShoppingCart";
-import NoMatchPage from "./components/NoMatchPage";
+import Home from "./pages/Home";
+import Shop from "./pages/Shop";
+import ItemView from "./pages/ItemView";
+import ShoppingCart from "./pages/ShoppingCart";
+import NoMatchPage from "./pages/NoMatchPage";
 
 import stock from "./productsAndImages/products"
 
-// helper functions
 import priceConverter from "./utils/moneyFunctions";
 // css
 import "./styles/App.css";

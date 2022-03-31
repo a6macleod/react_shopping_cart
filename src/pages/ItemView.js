@@ -1,4 +1,4 @@
-import Quantity from "./Quantity";
+import Quantity from "../components/Quantity";
 import priceConverter from "../utils/moneyFunctions";
 import "../styles/ItemView.css";
 
