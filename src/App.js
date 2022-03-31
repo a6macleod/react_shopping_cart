@@ -11,7 +11,7 @@ import NoMatchPage from "./components/NoMatchPage";
 import stock from "./productsAndImages/products"
 
 // helper functions
-import priceConverter from "./components/moneyFunctions";
+import priceConverter from "./utils/moneyFunctions";
 // css
 import "./styles/App.css";
 

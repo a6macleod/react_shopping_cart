@@ -1,5 +1,5 @@
 import Quantity from "./Quantity";
-import priceConverter from "./moneyFunctions";
+import priceConverter from "../utils/moneyFunctions";
 import "../styles/ItemView.css";
 
 const ItemView = (props) => {

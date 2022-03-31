@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import priceConverter from "./moneyFunctions";
+import priceConverter from "../utils/moneyFunctions";
 import "../styles/ShoppingCart.css";
 
 const ShoppingCart = (props) => {
