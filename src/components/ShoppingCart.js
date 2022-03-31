@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import priceConverter from "./moneyFunctions";
-import "./ShoppingCart.css";
+import "../styles/ShoppingCart.css";
 
 const ShoppingCart = (props) => {
   // tells Quantity to view from the shoppingcart

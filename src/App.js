@@ -13,7 +13,7 @@ import stock from "./productsAndImages/products"
 // helper functions
 import priceConverter from "./components/moneyFunctions";
 // css
-import "./App.css";
+import "./styles/App.css";
 
 function App() {
   const [products, setProducts] = useState(stock);

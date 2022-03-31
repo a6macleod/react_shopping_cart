@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import priceConverter from "./moneyFunctions";
-import "./Shop.css";
+import "../styles/Shop.css";
 
 const Shop = (props) => {
   return (

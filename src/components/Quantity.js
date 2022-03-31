@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import "./Quantity.css";
+import "../styles/Quantity.css";
 
 const Quantity = (props) => {
   const [itemAmount, setItemAmount] = useState(1);

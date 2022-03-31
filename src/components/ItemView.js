@@ -1,6 +1,6 @@
 import Quantity from "./Quantity";
 import priceConverter from "./moneyFunctions";
-import "./ItemView.css";
+import "../styles/ItemView.css";
 
 const ItemView = (props) => {
   return (
