@@ -1,15 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../styles/Quantity.css";
 
-const Quantity = (props) => {
+const Quantity = ({ item, addItemToCart }) => {
   const [itemAmount, setItemAmount] = useState(1);
-
-  useEffect(() => {
-    if (props.checkout) {
-      setItemAmount(props.item.quantity);
-    }
-  }, []);
 
   const increment = () => {
     setItemAmount(itemAmount + 1);
@@ -25,13 +19,13 @@ const Quantity = (props) => {
 
   return (
     <div className="quantity">
-      <h3>Quantity: {itemAmount}</h3>
+      <h3>Quantity: { itemAmount }</h3>
       <div className="buttonContainer">
         <div className="plusMinusContainer">
-          <button className="decrement secondaryButton" onClick={decrement}>
+          <button className="decrement secondaryButton" onClick={ decrement }>
             -
           </button>
-          <button className="increment secondaryButton" onClick={increment}>
+          <button className="increment secondaryButton" onClick={ increment }>
             +
           </button>
         </div>
@@ -39,7 +33,7 @@ const Quantity = (props) => {
       <Link to="/shopping-cart">
         <button
           className="primaryButton"
-          onClick={() => props.addItem(props.item, itemAmount)}
+          onClick={() => addItemToCart(item, itemAmount)}
         >
           add to cart
         </button>

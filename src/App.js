@@ -30,24 +30,31 @@ function App() {
     });
   };
 
-  // add an item to the cart state
-  const addItem = (item, quantity = 1) => {
-    const temp = cart.slice();
-    // check if the item is already in the cart => update quantity only
-    if (temp.some((cartItem) => cartItem.id === item.id)) {
-      for (let cartItem of temp) {
-        // update quantity for item already in cart
-        if (cartItem.id === item.id) {
-          cartItem.quantity = Number(cartItem.quantity) + Number(quantity);
-        }
-      }
-    } else {
+
+  const addItemToCart = (item, quantity = 1) => {
+    const currentCart = cart.slice();
+    if (itemIsAlreadyInCart(item, currentCart)) {
+      updateItemQuantity(item, currentCart, quantity);
+    }
+     else {
       // add a new item to an empty cart
       item.quantity = quantity;
-      temp.push(item);
+      currentCart.push(item);
     }
-    setCart(temp);
+    setCart(currentCart);
   };
+
+  const itemIsAlreadyInCart = (item, currentCart) => {
+    return currentCart.some((cartItem) => cartItem.id === item.id)
+  }
+
+  const updateItemQuantity = (item, currentCart, quantity) => {
+    for (let cartItem of currentCart) {
+      if (cartItem.id === item.id) {
+        cartItem.quantity = Number(cartItem.quantity) + Number(quantity);
+      }
+    }
+  }
 
   const minusQuantityOfItem = (item) => {
     const temp = cart.slice();
@@ -129,14 +136,14 @@ function App() {
             <Route exact path="/shopping-cart">
               <ShoppingCart
                 cart={cart}
-                addItem={addItem}
+                addItemToCart={addItemToCart}
                 checkoutCost={checkoutCost}
                 minusQuantityOfItem={minusQuantityOfItem}
                 removeItemFromCart={removeItemFromCart}
               />
             </Route>
             <Route exact path="/:id">
-              <ItemView addItem={addItem} item={item} />
+              <ItemView addItemToCart={addItemToCart} item={item} />
             </Route>
             <Route component={NoMatchPage} />
           </Switch>
