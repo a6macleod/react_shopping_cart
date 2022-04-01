@@ -2,21 +2,20 @@ import Quantity from "../components/Quantity";
 import priceConverter from "../utils/moneyFunctions";
 import "../styles/ItemView.css";
 
-const ItemView = (props) => {
+const ItemView = ({ item, addItem }) => {
   return (
     <div className="itemView">
       <div className="leftContainer">
-        <h2>{props.item.name}</h2>
+        <h2>{item.name}</h2>
         <div className="imgContainer">
-          <img src={props.item.img} alt={props.item.brief} />
+          <img src={item.img} alt={item.brief} />
         </div>
       </div>
       <div className="itemInfo">
         <div className="infoContainer">
-          <h4>${priceConverter(props.item.cost)}</h4>
-          <p>{props.item.description}</p>
-
-          <Quantity addItem={props.addItem} item={props.item} />
+          <h4>${priceConverter(item.cost)}</h4>
+          <p>{item.description}</p>
+          <Quantity addItem={addItem} item={item} />
         </div>
       </div>
     </div>

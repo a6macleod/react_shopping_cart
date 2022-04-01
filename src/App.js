@@ -11,27 +11,24 @@ import NoMatchPage from "./pages/NoMatchPage";
 import stock from "./productsAndImages/products"
 
 import priceConverter from "./utils/moneyFunctions";
-// css
+
 import "./styles/App.css";
 
 function App() {
   const [products, setProducts] = useState(stock);
-
   const [item, setItem] = useState([]);
+  const [cart, setCart] = useState([]);
 
-  const itemToView = (it) => {
+  const itemInfoForView = (item) => {
     setItem({
-      id: it.id,
-      name: it.name,
-      description: it.description,
-      img: it.img,
-      cost: it.cost,
-      quantity: it.quantity,
+      id: item.id,
+      name: item.name,
+      description: item.description,
+      img: item.img,
+      cost: item.cost,
+      quantity: item.quantity,
     });
   };
-
-  // the shopping cart
-  const [cart, setCart] = useState([]);
 
   // add an item to the cart state
   const addItem = (item, quantity = 1) => {
@@ -127,7 +124,7 @@ function App() {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/shop">
-              <Shop products={products} itemToView={itemToView} />
+              <Shop products={products} itemInfoForView={itemInfoForView} />
             </Route>
             <Route exact path="/shopping-cart">
               <ShoppingCart

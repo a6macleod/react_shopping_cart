@@ -9,7 +9,7 @@ const Shop = (props) => {
         {props.products.map((item) => {
           return (
             <div key={item.id} className={`item ${item.id}`}>
-              <Link to={`/${item.id}`} onClick={() => props.itemToView(item)}>
+              <Link to={`/${item.name.split(' ').join('-')}`} onClick={() => props.itemInfoForView(item)}>
                 <h4>{item.name}</h4>
                 <div className="imageContainer">
                   <img src={item.img} alt={item.brief} />
