@@ -62,14 +62,14 @@ function App() {
   };
 
   const removeItemFromCart = (item) => {
-    const temp = [];
-    for (let cartItem of cart) {
+    const updatedCart = cart.filter(cartItem => cartItem.id !== item.id);
+    /*for (let cartItem of cart) {
       // add all items to the new cart except for removed item
       if (cartItem.id !== item.id) {
         temp.push(cartItem);
       }
-    }
-    setCart(temp);
+    }*/
+    setCart(updatedCart);
   };
 
   // shopping cart prices, totals, subtotals
