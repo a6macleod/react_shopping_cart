@@ -1,56 +1,11 @@
 import { Link } from "react-router-dom";
-import priceConverter from "../utils/moneyFunctions";
+import EmptyCart from "../components/EmptyCart";
+import CartDisplay from "../components/CartDisplay";
+import TotalCostContainer from "../components/TotalCostContainer";
 import "../styles/ShoppingCart.css";
 
 const ShoppingCart = (props) => {
-  // tells Quantity to view from the shoppingcart
-  const isCartEmpty = props.cart.length > 0 ? false : true;
-
-  const emptyCart = (
-    <div className="cartItem">
-      <div className="emptyCart">
-        <h4>Your cart is empty</h4>
-      </div>
-    </div>
-  );
-
-  const cartDetails = props.cart.map((cartItem) => (
-    <div key={cartItem.id} className="cartItem">
-      <div className="imageContainer">
-        <img src={cartItem.img} alt={cartItem.discription} />
-      </div>
-      <div className="headerContainer">
-        <h4>{cartItem.name}</h4>
-        <p>${priceConverter(cartItem.cost)} each</p>
-        <div className="quantityContainer">
-          <h4>
-            {cartItem.quantity} <span className="normalWeight">walls</span>
-          </h4>
-          <div className="buttonContainer">
-            <div className="plusMinusContainer">
-              <button
-                className="decrement"
-                onClick={() => props.updateCart(cartItem, -1)}
-              >
-                -
-              </button>
-              <button
-                className="increment"
-                onClick={() => props.updateCart(cartItem, 1)}
-              >
-                +
-              </button>
-            </div>
-          </div>
-        </div>
-        <div className="deleteItem">
-          <button onClick={() => props.removeItemFromCart(cartItem)}>
-            Remove Item
-          </button>
-        </div>
-      </div>
-    </div>
-  ));
+  const isCartEmpty = props.cart.length < 1 ? true : false;
 
   return (
     <div className="shoppingCart">
@@ -64,23 +19,20 @@ const ShoppingCart = (props) => {
         </div>
         <div className="cartDisplayContainer">
           <div className="cartDisplay">
-            {isCartEmpty ? emptyCart : cartDetails}
+            {isCartEmpty ?
+              <EmptyCart />
+            :
+            <CartDisplay
+            cart={props.cart}
+            updateCart={props.updateCart}
+            checkoutInfo={props.checkoutInfo}
+            removeItemFromCart={props.removeItemFromCart}
+          />
+            }
           </div>
         </div>
       </div>
-      <div className="totalsContainer">
-        <div className="totals">
-          <p className="subtotal">
-            SUBTOTAL: {`$${props.checkoutCost.subtotalPrice}`}
-          </p>
-          <p className="tax">TAX: {`$${props.checkoutCost.taxPrice}`}</p>
-          <p className="shipping">
-            SHIPPING: {`$${props.checkoutCost.shippingPrice}`}
-          </p>
-          <h4 className="total">TOTAL: {`$${props.checkoutCost.totalPrice}`}</h4>
-          <button className="checkout">CHECKOUT</button>
-        </div>
-      </div>
+      <TotalCostContainer checkoutInfo={props.checkoutInfo}/>
     </div>
   );
 };

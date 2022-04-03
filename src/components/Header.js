@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "../styles/Header.css";
 
-const Header = (props) => {
+const Header = ({ checkoutInfo }) => {
   return (
     <div className="header">
       <Link to="/">
@@ -14,7 +14,7 @@ const Header = (props) => {
           </Link>
           <Link to="/shopping-cart">
             <li>
-              <i className="fas fa-shopping-cart">{props.checkoutCost.totalQuantity}</i>
+              <i className="fas fa-shopping-cart">{checkoutInfo.totalQuantity}</i>
             </li>
           </Link>
         </ul>

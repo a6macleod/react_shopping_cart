@@ -19,7 +19,7 @@ function App() {
   const [products, setProducts] = useState(stock);
   const [item, setItem] = useState([]);
   const [cart, setCart] = useState([]);
-  const [checkoutCost, setCheckoutCost] = useState({
+  const [checkoutInfo, setCheckoutInfo] = useState({
     totalQuantity: 0,
     subtotalPrice: 0,
     taxPrice: 0,
@@ -106,7 +106,7 @@ function App() {
   const shipping = getShipping(totalQuantity);
   const total = subtotal + tax + shipping;
 
-  setCheckoutCost({
+  setCheckoutInfo({
     totalQuantity: totalQuantity,
     subtotalPrice: priceConverter(subtotal),
     taxPrice: priceConverter(tax),
@@ -118,7 +118,7 @@ function App() {
   return (
     <div className="App">
       <Router basename={process.env.PUBLIC_URL}>
-        <Header checkoutCost={checkoutCost} />
+        <Header checkoutInfo={checkoutInfo} />
         <div className="main">
           <Switch>
             <Route exact path="/" component={Home} />
@@ -129,7 +129,7 @@ function App() {
               <ShoppingCart
                 cart={cart}
                 updateCart={updateCart}
-                checkoutCost={checkoutCost}
+                checkoutInfo={checkoutInfo}
                 removeItemFromCart={removeItemFromCart}
               />
             </Route>
