@@ -36,7 +36,7 @@ const ShoppingCart = (props) => {
               </button>
               <button
                 className="increment"
-                onClick={() => props.addItemToCart(cartItem, 1)}
+                onClick={() => props.updateCart(cartItem, 1)}
               >
                 +
               </button>

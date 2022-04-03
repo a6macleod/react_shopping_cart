@@ -2,7 +2,7 @@ import Quantity from "../components/Quantity";
 import priceConverter from "../utils/moneyFunctions";
 import "../styles/ItemView.css";
 
-const ItemView = ({ item, addItemToCart }) => {
+const ItemView = ({ item, updateCart }) => {
   return (
     <div className="itemView">
       <div className="leftContainer">
@@ -15,7 +15,7 @@ const ItemView = ({ item, addItemToCart }) => {
         <div className="infoContainer">
           <h4>${priceConverter(item.cost)}</h4>
           <p>{item.description}</p>
-          <Quantity addItemToCart={addItemToCart} item={item} />
+          <Quantity updateCart={updateCart} item={item} />
         </div>
       </div>
     </div>

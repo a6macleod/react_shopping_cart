@@ -31,21 +31,25 @@ function App() {
   };
 
 
-  const addItemToCart = (item, quantity = 1) => {
+  const updateCart = (item, quantity = 1) => {
     const currentCart = cart.slice();
     if (itemIsAlreadyInCart(item, currentCart)) {
       updateItemQuantity(item, currentCart, quantity);
-    }
-     else {
-      // add a new item to an empty cart
-      item.quantity = quantity;
-      currentCart.push(item);
+    } else {
+      addItemToCart(item, currentCart, quantity)
+
     }
     setCart(currentCart);
   };
 
   const itemIsAlreadyInCart = (item, currentCart) => {
     return currentCart.some((cartItem) => cartItem.id === item.id)
+  };
+
+  const addItemToCart = (item, currentCart, quantity) => {
+// add a new item to an empty cart
+item.quantity = quantity;
+currentCart.push(item);
   }
 
   const updateItemQuantity = (item, currentCart, quantity) => {
@@ -136,14 +140,14 @@ function App() {
             <Route exact path="/shopping-cart">
               <ShoppingCart
                 cart={cart}
-                addItemToCart={addItemToCart}
+                updateCart={updateCart}
                 checkoutCost={checkoutCost}
                 minusQuantityOfItem={minusQuantityOfItem}
                 removeItemFromCart={removeItemFromCart}
               />
             </Route>
             <Route exact path="/:id">
-              <ItemView addItemToCart={addItemToCart} item={item} />
+              <ItemView updateCart={updateCart} item={item} />
             </Route>
             <Route component={NoMatchPage} />
           </Switch>

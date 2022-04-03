@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../styles/Quantity.css";
 
-const Quantity = ({ item, addItemToCart }) => {
+const Quantity = ({ item, updateCart }) => {
   const [itemAmount, setItemAmount] = useState(1);
 
   const increment = () => {
@@ -33,7 +33,7 @@ const Quantity = ({ item, addItemToCart }) => {
       <Link to="/shopping-cart">
         <button
           className="primaryButton"
-          onClick={() => addItemToCart(item, itemAmount)}
+          onClick={() => updateCart(item, itemAmount)}
         >
           add to cart
         </button>
