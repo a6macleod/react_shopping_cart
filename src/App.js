@@ -13,10 +13,9 @@ import stock from "./productsAndImages/products"
 import priceConverter from "./utils/moneyFunctions";
 
 import "./styles/App.css";
-import { getAllByText } from "@testing-library/react";
 
 function App() {
-  const [products, setProducts] = useState(stock);
+  const [products, ] = useState(stock);
   const [item, setItem] = useState([]);
   const [cart, setCart] = useState([]);
   const [checkoutInfo, setCheckoutInfo] = useState({
