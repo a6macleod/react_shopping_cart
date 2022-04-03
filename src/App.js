@@ -37,7 +37,6 @@ function App() {
       updateItemQuantity(item, currentCart, quantity);
     } else {
       addItemToCart(item, currentCart, quantity)
-
     }
     setCart(currentCart);
   };
@@ -46,32 +45,20 @@ function App() {
     return currentCart.some((cartItem) => cartItem.id === item.id)
   };
 
-  const addItemToCart = (item, currentCart, quantity) => {
-// add a new item to an empty cart
-item.quantity = quantity;
-currentCart.push(item);
-  }
-
   const updateItemQuantity = (item, currentCart, quantity) => {
     for (let cartItem of currentCart) {
       if (cartItem.id === item.id) {
         cartItem.quantity = Number(cartItem.quantity) + Number(quantity);
       }
-    }
-  }
-
-  const minusQuantityOfItem = (item) => {
-    const temp = cart.slice();
-    for (let cartItem of temp) {
-      // update quantity for item already in cart
-      if (cartItem.id === item.id) {
-        cartItem.quantity = Number(cartItem.quantity) - 1;
-      }
       if (cartItem.quantity < 1) {
         cartItem.quantity = 1;
       }
     }
-    setCart(temp);
+  };
+
+  const addItemToCart = (item, currentCart, quantity) => {
+    item.quantity = quantity;
+    currentCart.push(item);
   };
 
   const removeItemFromCart = (item) => {
@@ -142,7 +129,6 @@ currentCart.push(item);
                 cart={cart}
                 updateCart={updateCart}
                 checkoutCost={checkoutCost}
-                minusQuantityOfItem={minusQuantityOfItem}
                 removeItemFromCart={removeItemFromCart}
               />
             </Route>

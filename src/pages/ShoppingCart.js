@@ -30,7 +30,7 @@ const ShoppingCart = (props) => {
             <div className="plusMinusContainer">
               <button
                 className="decrement"
-                onClick={() => props.minusQuantityOfItem(cartItem)}
+                onClick={() => props.updateCart(cartItem, -1)}
               >
                 -
               </button>
