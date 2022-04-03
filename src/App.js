@@ -13,11 +13,19 @@ import stock from "./productsAndImages/products"
 import priceConverter from "./utils/moneyFunctions";
 
 import "./styles/App.css";
+import { getAllByText } from "@testing-library/react";
 
 function App() {
   const [products, setProducts] = useState(stock);
   const [item, setItem] = useState([]);
   const [cart, setCart] = useState([]);
+  const [checkoutCost, setCheckoutCost] = useState({
+    totalQuantity: 0,
+    subtotalPrice: 0,
+    taxPrice: 0,
+    shippingPrice: 0,
+    totalPrice: 0,
+  });
 
   const itemInfoForView = (item) => {
     setItem({
@@ -29,7 +37,6 @@ function App() {
       quantity: item.quantity,
     });
   };
-
 
   const updateCart = (item, quantity = 1) => {
     const currentCart = cart.slice();
@@ -63,61 +70,55 @@ function App() {
 
   const removeItemFromCart = (item) => {
     const updatedCart = cart.filter(cartItem => cartItem.id !== item.id);
-    /*for (let cartItem of cart) {
-      // add all items to the new cart except for removed item
-      if (cartItem.id !== item.id) {
-        temp.push(cartItem);
-      }
-    }*/
     setCart(updatedCart);
   };
 
-  // shopping cart prices, totals, subtotals
-  const [checkoutCost, setCheckoutCost] = useState({
-    subtotal: 0,
-    tax: 0,
-    shipping: 0,
-    total: 0,
-  });
-
   useEffect(() => {
-    const getSubtotal = () => {
-      let tempSubtotal = 0;
-      cart.forEach((cartItem) => {
-        tempSubtotal = tempSubtotal + cartItem.quantity * cartItem.cost;
-      });
-      return tempSubtotal;
-    };
-
-    const getShipping = () => {
-      let tempShipping = cart.length * 10000;
-      return tempShipping;
-    };
-
-    const subtotal = getSubtotal();
-    const tax = subtotal * 0.113;
-    const shipping = getShipping();
-    const total = subtotal + tax + shipping;
-
-    setCheckoutCost({
-      subtotal: parseFloat(priceConverter(subtotal)).toFixed(2),
-      tax: parseFloat(priceConverter(tax)).toFixed(2),
-      shipping: parseFloat(priceConverter(shipping)).toFixed(2),
-      total: parseFloat(priceConverter(total)).toFixed(2),
+  const getSubtotal = () => {
+    let tempSubtotal = 0;
+    cart.forEach((cartItem) => {
+      tempSubtotal = tempSubtotal + cartItem.quantity * cartItem.cost;
     });
-  }, [cart]);
+    return tempSubtotal;
+  };
 
-  // update the cart icon
-  const [cartQuantity, setCartQuantity] = useState(0);
+  const getTax = (subtotal) => {
+    const taxRate = 0.113;
+    return subtotal * taxRate;
+  };
 
-  useEffect(() => {
-    setCartQuantity(cart.length);
-  }, [cart]);
+  const getShipping = (totalQuantity) => {
+    let shippingPrice = totalQuantity * 10000;
+    return shippingPrice;
+  };
+
+  const getCartQuantity = () => {
+    let cartTotalQuantity = 0;
+    cart.forEach((cartItem) => {
+      cartTotalQuantity += cartItem.quantity;
+    });
+    return cartTotalQuantity;
+  };
+
+  const totalQuantity = getCartQuantity()
+  const subtotal = getSubtotal();
+  const tax = getTax(subtotal);
+  const shipping = getShipping(totalQuantity);
+  const total = subtotal + tax + shipping;
+
+  setCheckoutCost({
+    totalQuantity: totalQuantity,
+    subtotalPrice: priceConverter(subtotal),
+    taxPrice: priceConverter(tax),
+    shippingPrice: priceConverter(shipping),
+    totalPrice: priceConverter(total),
+  });
+}, [cart]);
 
   return (
     <div className="App">
       <Router basename={process.env.PUBLIC_URL}>
-        <Header cartQuantity={cartQuantity} />
+        <Header checkoutCost={checkoutCost} />
         <div className="main">
           <Switch>
             <Route exact path="/" component={Home} />

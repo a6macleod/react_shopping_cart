@@ -1,6 +1,6 @@
-// convert price from cents to dollars
-function priceConverter(price) {
-  return price / 100;
+function priceConverter(priceInCents) {
+  const priceInDollars = parseFloat(priceInCents / 100).toFixed(2)
+  return priceInDollars;
 }
 
 export default priceConverter;

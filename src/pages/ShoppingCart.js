@@ -71,13 +71,13 @@ const ShoppingCart = (props) => {
       <div className="totalsContainer">
         <div className="totals">
           <p className="subtotal">
-            SUBTOTAL: {`$${props.checkoutCost.subtotal}`}
+            SUBTOTAL: {`$${props.checkoutCost.subtotalPrice}`}
           </p>
-          <p className="tax">TAX: {`$${props.checkoutCost.tax}`}</p>
+          <p className="tax">TAX: {`$${props.checkoutCost.taxPrice}`}</p>
           <p className="shipping">
-            SHIPPING: {`$${props.checkoutCost.shipping}`}
+            SHIPPING: {`$${props.checkoutCost.shippingPrice}`}
           </p>
-          <h4 className="total">TOTAL: {`$${props.checkoutCost.total}`}</h4>
+          <h4 className="total">TOTAL: {`$${props.checkoutCost.totalPrice}`}</h4>
           <button className="checkout">CHECKOUT</button>
         </div>
       </div>

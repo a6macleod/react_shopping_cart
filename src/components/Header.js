@@ -14,7 +14,7 @@ const Header = (props) => {
           </Link>
           <Link to="/shopping-cart">
             <li>
-              <i className="fas fa-shopping-cart">{props.cartQuantity}</i>
+              <i className="fas fa-shopping-cart">{props.checkoutCost.totalQuantity}</i>
             </li>
           </Link>
         </ul>
