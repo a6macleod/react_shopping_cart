@@ -4,8 +4,8 @@ import CartDisplay from "../components/CartDisplay";
 import TotalCostContainer from "../components/TotalCostContainer";
 import "../styles/ShoppingCart.css";
 
-const ShoppingCart = (props) => {
-  const isCartEmpty = props.cart.length < 1 ? true : false;
+const ShoppingCart = ({ cart, updateCart, checkoutInfo, removeItemFromCart }) => {
+  const isCartEmpty = cart.length < 1 ? true : false;
 
   return (
     <div className="shoppingCart">
@@ -23,16 +23,16 @@ const ShoppingCart = (props) => {
               <EmptyCart />
             :
             <CartDisplay
-            cart={props.cart}
-            updateCart={props.updateCart}
-            checkoutInfo={props.checkoutInfo}
-            removeItemFromCart={props.removeItemFromCart}
+            cart={cart}
+            updateCart={updateCart}
+            checkoutInfo={checkoutInfo}
+            removeItemFromCart={removeItemFromCart}
           />
             }
           </div>
         </div>
       </div>
-      <TotalCostContainer checkoutInfo={props.checkoutInfo}/>
+      <TotalCostContainer checkoutInfo={checkoutInfo}/>
     </div>
   );
 };
