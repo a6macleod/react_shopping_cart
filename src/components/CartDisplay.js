@@ -1,8 +1,8 @@
 import priceConverter from "../utils/priceConverter";
 
-const CartDisplay = (props) => {
+const CartDisplay = ({ cart, updateCart, removeItemFromCart }) => {
  return (
-  props.cart.map((cartItem) => (
+  cart.map((cartItem) => (
     <div key={cartItem.id} className="cartItem">
       <div className="imageContainer">
         <img src={cartItem.img} alt={cartItem.discription} />
@@ -18,13 +18,13 @@ const CartDisplay = (props) => {
             <div className="plusMinusContainer">
               <button
                 className="decrement"
-                onClick={() => props.updateCart(cartItem, -1)}
+                onClick={() => updateCart(cartItem, -1)}
               >
                 -
               </button>
               <button
                 className="increment"
-                onClick={() => props.updateCart(cartItem, 1)}
+                onClick={() => updateCart(cartItem, 1)}
               >
                 +
               </button>
@@ -32,7 +32,7 @@ const CartDisplay = (props) => {
           </div>
         </div>
         <div className="deleteItem">
-          <button onClick={() => props.removeItemFromCart(cartItem)}>
+          <button onClick={() => removeItemFromCart(cartItem)}>
             Remove Item
           </button>
         </div>

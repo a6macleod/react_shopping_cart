@@ -25,7 +25,6 @@ const ShoppingCart = ({ cart, updateCart, checkoutInfo, removeItemFromCart }) =>
             <CartDisplay
             cart={cart}
             updateCart={updateCart}
-            checkoutInfo={checkoutInfo}
             removeItemFromCart={removeItemFromCart}
           />
             }
