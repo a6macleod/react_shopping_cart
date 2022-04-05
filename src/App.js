@@ -10,7 +10,7 @@ import NoMatchPage from "./pages/NoMatchPage";
 
 import stock from "./productsAndImages/products"
 
-import priceConverter from "./utils/moneyFunctions";
+import priceConverter from "./utils/priceConverter";
 
 import "./styles/App.css";
 

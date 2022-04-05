@@ -1,5 +1,5 @@
 import Quantity from "../components/Quantity";
-import priceConverter from "../utils/moneyFunctions";
+import priceConverter from "../utils/priceConverter";
 import "../styles/ItemView.css";
 
 const ItemView = ({ item, updateCart }) => {

@@ -1,4 +1,4 @@
-import priceConverter from "../utils/moneyFunctions";
+import priceConverter from "../utils/priceConverter";
 
 const CartDisplay = (props) => {
  return (
