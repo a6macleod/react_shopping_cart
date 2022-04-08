@@ -1,14 +1,19 @@
+import { Link } from "react-router-dom";
 import priceConverter from "../utils/priceConverter";
 
-const CartDisplay = ({ cart, updateCart, removeItemFromCart }) => {
+const CartDisplay = ({ cart, updateCart, removeItemFromCart, itemInfoForView }) => {
  return (
   cart.map((cartItem) => (
     <div key={cartItem.id} className="cartItem">
       <div className="imageContainer">
-        <img src={cartItem.img} alt={cartItem.discription} />
+        <Link to={`/${cartItem.name.split(' ').join('-')}`} onClick={() => itemInfoForView(cartItem)}>
+          <img src={cartItem.img} alt={cartItem.discription} />
+        </Link>
       </div>
       <div className="headerContainer">
-        <h4>{cartItem.name}</h4>
+        <Link to={`/${cartItem.name.split(' ').join('-')}`} onClick={() => itemInfoForView(cartItem)}>
+          <h4>{cartItem.name}</h4>
+        </Link>
         <p>${priceConverter(cartItem.cost)} each</p>
         <div className="quantityContainer">
           <h4>

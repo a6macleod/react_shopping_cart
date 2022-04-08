@@ -5,7 +5,7 @@ import TotalCostContainer from "../components/TotalCostContainer";
 import "../styles/ShoppingCart.css";
 import "../styles/buttons.css";
 
-const ShoppingCart = ({ cart, updateCart, checkoutInfo, removeItemFromCart }) => {
+const ShoppingCart = ({ cart, updateCart, checkoutInfo, removeItemFromCart, itemInfoForView }) => {
   const isCartEmpty = cart.length < 1 ? true : false;
 
   return (
@@ -27,6 +27,7 @@ const ShoppingCart = ({ cart, updateCart, checkoutInfo, removeItemFromCart }) =>
             cart={cart}
             updateCart={updateCart}
             removeItemFromCart={removeItemFromCart}
+            itemInfoForView={itemInfoForView}
           />
             }
           </div>

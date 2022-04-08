@@ -129,6 +129,7 @@ function App() {
                 cart={cart}
                 updateCart={updateCart}
                 checkoutInfo={checkoutInfo}
+                itemInfoForView={itemInfoForView}
                 removeItemFromCart={removeItemFromCart}
               />
             </Route>
