@@ -43,10 +43,17 @@
 	padding-left: 10px;
 }
 
+.underlined {
+	text-decoration: underline;
+	text-decoration-thickness: 4px;
+	text-decoration-color: hsl(185, 40%, 50%);
+}
+
 .item h4 {
 	font-size: 24px;
 	margin: 0;
-	padding: 15px;
+	/* padding: 15px; */
+	margin: 15px;
 }
 
 .item img {
