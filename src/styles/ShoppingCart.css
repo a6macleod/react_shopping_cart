@@ -2,8 +2,6 @@
 	display: grid;
 	grid-template-columns: 2fr 1fr;
 	background-color: hsl(0, 10%, 95%);
-	/* viewheight - header height*/
-	min-height: calc(100vh - 70px);
 }
 
 /* Totals and checkout button */
@@ -23,6 +21,7 @@
 	padding: 25px;
 	border: hsl(185, 20%, 30%) solid 1px;
 	color: hsl(0, 0%, 100%);
+	transition: border 0.2s, background-color 0.2s;
 }
 
 .checkout:hover {
@@ -57,7 +56,9 @@
 	background-color: hsl(0, 10%, 95%);
 	font-size: 16px;
 	padding: 10px;
+	transition: background-color 0.2s, color 0.2s, border 0.2s;
 }
+
 
 .keepShoppingContainer button:hover {
 	background-color: hsl(185, 40%, 50%);
