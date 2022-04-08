@@ -10,11 +10,11 @@ const Header = ({ checkoutInfo }) => {
       <nav>
         <ul>
           <Link to="/shop">
-            <li>Shop</li>
+            <li title="keep shopping">Shop</li>
           </Link>
           <Link to="/shopping-cart">
             <li>
-              <i className="fas fa-shopping-cart">{checkoutInfo.totalQuantity}</i>
+              <i className="fas fa-shopping-cart" title="shopping cart">{checkoutInfo.totalQuantity}</i>
             </li>
           </Link>
         </ul>

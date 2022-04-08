@@ -12,8 +12,15 @@
 }
 
 .header li {
-	padding-right: 40px;
+	margin-right: 40px;
 	list-style: none;
+	padding: 10px;
+	border: 2px solid transparent;
+	transition: border 0.2s;
+}
+
+.header li:hover {
+	border: 2px solid hsl(185, 20%, 30%);
 }
 
 a {

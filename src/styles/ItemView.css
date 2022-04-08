@@ -2,8 +2,8 @@
   padding-bottom: 3%;
   display: flex;
   justify-content: space-evenly;
-  background-color: hsl(0, 10%, 95%);
-  height: 100vh;
+  /* background-color: hsl(0, 10%, 95%); */
+  /* min-height: 100vh; */
 }
 
 .imgContainer {
