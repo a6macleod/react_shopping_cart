@@ -3,6 +3,7 @@ import EmptyCart from "../components/EmptyCart";
 import CartDisplay from "../components/CartDisplay";
 import TotalCostContainer from "../components/TotalCostContainer";
 import "../styles/ShoppingCart.css";
+import "../styles/buttons.css";
 
 const ShoppingCart = ({ cart, updateCart, checkoutInfo, removeItemFromCart }) => {
   const isCartEmpty = cart.length < 1 ? true : false;
@@ -12,7 +13,7 @@ const ShoppingCart = ({ cart, updateCart, checkoutInfo, removeItemFromCart }) =>
       <div className="cartItemsContainer">
         <div className="keepShoppingContainer">
           <Link to="/shop">
-            <button>
+            <button className="secondaryButton">
               <i className="fas fa-arrow-left"></i> Keep Shopping!
             </button>
           </Link>

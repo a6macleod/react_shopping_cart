@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../styles/Quantity.css";
+import "../styles/buttons.css";
 
 const Quantity = ({ item, updateCart }) => {
   const [itemAmount, setItemAmount] = useState(1);
@@ -22,10 +23,10 @@ const Quantity = ({ item, updateCart }) => {
       <h3>Quantity: { itemAmount }</h3>
       <div className="buttonContainer">
         <div className="plusMinusContainer">
-          <button className="decrement secondaryButton" onClick={ decrement }>
+          <button className="decrement" onClick={ decrement }>
             -
           </button>
-          <button className="increment secondaryButton" onClick={ increment }>
+          <button className="increment" onClick={ increment }>
             +
           </button>
         </div>

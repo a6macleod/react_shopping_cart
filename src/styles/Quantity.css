@@ -14,17 +14,3 @@
 .buttonContainer button {
 	width: 2em;
 }
-
-.primaryButton {
-	background-color: hsl(185, 40%, 50%);
-	border-radius: 3px;
-	padding: 25px;
-	border: hsl(185, 20%, 30%) solid 1px;
-	color: hsl(0, 0%, 100%);
-}
-
-.primaryButton:hover {
-	cursor: pointer;
-	border: hsl(185, 40%, 50%) solid 1px;
-	background-color: hsl(185, 20%, 30%);
-}

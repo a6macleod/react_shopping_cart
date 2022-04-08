@@ -15,21 +15,6 @@
 	text-align: right;
 }
 
-.checkout {
-	background-color: hsl(185, 40%, 50%);
-	border-radius: 3px;
-	padding: 25px;
-	border: hsl(185, 20%, 30%) solid 1px;
-	color: hsl(0, 0%, 100%);
-	transition: border 0.2s, background-color 0.2s;
-}
-
-.checkout:hover {
-	cursor: pointer;
-	border: hsl(185, 40%, 50%) solid 1px;
-	background-color: hsl(185, 20%, 30%);
-}
-
 /* Itemized Cart details */
 .cartItemsContainer {
 	grid-column: 1;
@@ -48,23 +33,6 @@
 /* button to lead back to the shop */
 .keepShoppingContainer {
 	margin-bottom: 40px;
-}
-
-.keepShoppingContainer button {
-	border: hsl(185, 40%, 50%) solid 2px;
-	border-radius: 3px;
-	background-color: hsl(0, 10%, 95%);
-	font-size: 16px;
-	padding: 10px;
-	transition: background-color 0.2s, color 0.2s, border 0.2s;
-}
-
-
-.keepShoppingContainer button:hover {
-	background-color: hsl(185, 40%, 50%);
-	color: hsl(0, 0%, 100%);
-	cursor: pointer;
-	border: hsl(0, 0%, 100%) solid 2px;
 }
 
 /* Display for when the cart is empty */

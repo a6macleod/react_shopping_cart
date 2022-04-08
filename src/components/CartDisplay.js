@@ -12,7 +12,7 @@ const CartDisplay = ({ cart, updateCart, removeItemFromCart }) => {
         <p>${priceConverter(cartItem.cost)} each</p>
         <div className="quantityContainer">
           <h4>
-            {cartItem.quantity} <span className="normalWeight">walls</span>
+          <span className="normalWeight">Quantity: </span>{cartItem.quantity}
           </h4>
           <div className="buttonContainer">
             <div className="plusMinusContainer">

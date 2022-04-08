@@ -12,7 +12,7 @@ const TotalCostContainer = ({ checkoutInfo }) => {
           SHIPPING: {`$${checkoutInfo.shippingPrice}`}
         </p>
         <h4 className="total">TOTAL: {`$${checkoutInfo.totalPrice}`}</h4>
-        <button className="checkout">CHECKOUT</button>
+        <button className="primaryButton">CHECKOUT</button>
       </div>
   </div>
   );
