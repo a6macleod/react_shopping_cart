@@ -36,11 +36,9 @@ const CartDisplay = ({ cart, updateCart, removeItemFromCart, itemInfoForView }) 
             </div>
           </div>
         </div>
-        <div className="deleteItem">
-          <button onClick={() => removeItemFromCart(cartItem)}>
-            Remove Item
-          </button>
-        </div>
+        <button className="deleteButton" onClick={() => removeItemFromCart(cartItem)}>
+          Remove Item
+        </button>
       </div>
     </div>
   ))

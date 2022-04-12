@@ -30,3 +30,18 @@
 	cursor: pointer;
 	border: hsl(0, 0%, 100%) solid 2px;
 }
+
+.deleteButton {
+	background-color: none;
+	border: none;
+	border-radius: 3px;
+	padding: 5px;
+	background-color: hsl(0, 10%, 95%);
+	transition: background-color 0.2s, color 0.2s;
+}
+
+.deleteButton:hover {
+	background-color: hsl(0, 50%, 50%);
+	color: hsl(0, 10%, 95%);
+	cursor: pointer;
+}
