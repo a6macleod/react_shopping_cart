@@ -92,9 +92,7 @@
 
   .hero .modal {
     max-width: 250px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    padding: 20px;
+    margin-top: 200px;
   }
 
   .modal button {
@@ -105,9 +103,7 @@
 @media (max-width: 350px) {
   .hero .modal {
     max-width: 200px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    padding: 20px;
+    margin-top: 75px;
   }
 
   .hero {

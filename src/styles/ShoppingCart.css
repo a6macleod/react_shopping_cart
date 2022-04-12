@@ -2,6 +2,7 @@
 	display: grid;
 	grid-template-columns: 2fr 1fr;
 	background-color: hsl(0, 10%, 95%);
+	padding-bottom: 100px;
 }
 
 /* Totals and checkout button */
@@ -85,20 +86,6 @@
 .headerContainer {
 	display: flex;
 	flex-direction: column;
-}
-
-.deleteItem button {
-	background-color: none;
-	border: none;
-	border-radius: 3px;
-	padding: 5px;
-	background-color: hsl(0, 10%, 95%);
-}
-
-.deleteItem button:hover {
-	background-color: hsl(0, 50%, 50%);
-	color: hsl(0, 10%, 95%);
-	cursor: pointer;
 }
 
 @media (max-width: 900px) {
