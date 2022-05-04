@@ -28,7 +28,7 @@
 .keepShoppingContainer {
 	margin-bottom: 40px;
 }
-/* Move this to EmptyCart.css */
+
 .emptyCart {
 	display: flex;
 	align-items: center;
