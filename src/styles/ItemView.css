@@ -87,11 +87,7 @@
     font-size: 12px;
   }
 
-  .imgContainer {
-    max-width: 220px;
-  }
-
-  .infoContainer {
+  .imgContainer, .infoContainer {
     max-width: 220px;
   }
 }
