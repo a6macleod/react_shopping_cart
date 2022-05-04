@@ -1,27 +1,21 @@
 .shoppingCart {
 	display: grid;
 	grid-template-columns: 2fr 1fr;
-	background-color: hsl(0, 10%, 95%);
 	padding-bottom: 100px;
 }
 
-/* Totals and checkout button */
 .totalsContainer {
 	display: flex;
 }
 
 .totals {
-	grid-column: 2;
 	padding: 30px;
 	text-align: right;
 }
 
-/* Itemized Cart details */
 .cartItemsContainer {
-	grid-column: 1;
 	margin-top: 3%;
 	margin-left: 3%;
-	grid-column: 1;
 	display: flex;
 	flex-direction: column;
 }
@@ -31,12 +25,10 @@
 	justify-content: center;
 }
 
-/* button to lead back to the shop */
 .keepShoppingContainer {
 	margin-bottom: 40px;
 }
-
-/* Display for when the cart is empty */
+/* Move this to EmptyCart.css */
 .emptyCart {
 	display: flex;
 	align-items: center;
@@ -45,7 +37,6 @@
 }
 
 .cartItem {
-	width: 500px;
 	display: flex;
 }
 
@@ -57,10 +48,6 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-}
-
-.headerContainer h4 {
-	margin: 5;
 }
 
 .normalWeight {
@@ -88,26 +75,13 @@
 	flex-direction: column;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 700px) {
 	.shoppingCart {
-		grid-template-columns: 1fr 2fr 1fr;
-		justify-items: center;
-	}
-	.cartDisplayContainer,
-	.totalsContainer {
-		grid-column: 2;
+		display: grid;
+		grid-template-columns: 1fr;
 	}
 
 	.totalsContainer {
-		grid-row-start: 1;
-		padding: 0;
-		width: 300px;
-		display: flex;
 		justify-content: center;
-	}
-
-	.cartItem {
-		width: 500px;
-		padding: 0;
 	}
 }
