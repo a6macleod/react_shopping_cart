@@ -5,7 +5,7 @@ const Header = ({ checkoutInfo }) => {
   return (
     <div className="header">
       <Link to="/">
-        <h2>Ye Olde Brick Shoppe</h2>
+        <h2 className="logo">Ye Olde Brick Shoppe</h2>
       </Link>
       <nav>
         <ul>

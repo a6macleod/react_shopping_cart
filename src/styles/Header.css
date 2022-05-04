@@ -4,7 +4,6 @@
 	padding: 0 20px;
 	align-items: center;
 	min-height: 70px;
-	background-color: hsl(0, 10%, 95%);
 }
 
 .header nav ul {
@@ -37,8 +36,8 @@ a {
 		font-size: 12px;
 	}
 
-	.header h2 {
-		font-size: 12px;
+	.header .logo {
+		font-size: 16px;
 	}
 
 	.header li {
@@ -55,8 +54,8 @@ a {
 		font-size: 12px;
 	}
 
-	.header h2 {
-		font-size: 12px;
+	.header .logo {
+		font-size: 14px;
 	}
 
 	.header li {
