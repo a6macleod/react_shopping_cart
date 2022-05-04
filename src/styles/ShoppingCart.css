@@ -43,7 +43,6 @@
 .headerContainer,
 .quantityContainer,
 .deleteItem {
-	width: 150px;
 	padding-left: 10px;
 	display: flex;
 	align-items: center;
@@ -61,7 +60,6 @@
 .shoppingCart .imageContainer {
 	width: 200px;
 	padding: 10px;
-	display: flex;
 }
 
 .shoppingCart .imageContainer img {
@@ -83,5 +81,9 @@
 
 	.totalsContainer {
 		justify-content: center;
+	}
+
+	.shoppingCart .imageContainer {
+		width: 150px;
 	}
 }
